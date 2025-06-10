@@ -14,6 +14,7 @@ class MostPopularCell extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
@@ -52,6 +53,5 @@ class MostPopularCell extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

@@ -37,6 +37,5 @@ class CategoryCell extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }
