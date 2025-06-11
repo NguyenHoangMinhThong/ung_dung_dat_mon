@@ -25,7 +25,7 @@ class ViewAllTitleRow extends StatelessWidget {
           child: Text(
             "Xem tất cả",
             style: TextStyle(
-              color: ColorApp.primaryText,
+              color: ColorApp.secondText,
               fontSize: 13,
               fontWeight: FontWeight.w500,
             ),

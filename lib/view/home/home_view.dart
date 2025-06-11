@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ung_dung_dat_mon/common/color_app.dart';
 import 'package:ung_dung_dat_mon/common_widget/category_cell.dart';
+import 'package:ung_dung_dat_mon/common_widget/most_popular_cell.dart';
+import 'package:ung_dung_dat_mon/common_widget/popular_restaurant_row.dart';
+import 'package:ung_dung_dat_mon/common_widget/recent_list_row.dart';
 import 'package:ung_dung_dat_mon/common_widget/round_textfield.dart';
 import 'package:ung_dung_dat_mon/common_widget/view_all_title_row.dart';
 
@@ -15,139 +18,99 @@ class _HomeViewState extends State<HomeView> {
   TextEditingController searchController = TextEditingController();
 
   List categoryList = [
-    {"name": "Hoa Kỳ", "image": "assets/img/hamburger.png"},
-    {"name": "Itaian", "image": "assets/img/mi_y.png"},
-    {"name": "Hàn Quốc", "image": "assets/img/com_tron_han_quoc.png"},
-    {"name": "Pháp", "image": "assets/img/beef_steak.png"},
-    {"name": "Việt Nam", "image": "assets/img/banh_mi.png"},
+    {"name": "Hoa Kỳ", "image": "assets/img/foods/hamburger.png"},
+    {"name": "Itaian", "image": "assets/img/foods/mi_y.png"},
+    {"name": "Hàn Quốc", "image": "assets/img/foods/com_tron_han_quoc.png"},
+    {"name": "Pháp", "image": "assets/img/foods/beef_steak.png"},
+    {"name": "Việt Nam", "image": "assets/img/foods/banh_mi.png"},
   ];
 
   List popList = [
     {
-      "name": "Hoa Kỳ",
-      "image": "assets/img/hamburger.png",
+      "name": "Hamburger",
+      "image": "assets/img/foods/hamburger.png",
       "rate": "4.9",
       "rating": "124",
       "type": "Thức ăn nhanh",
-      "location": "Phan Xích Long, Quận 11",
+      "food_type": "Ẩm thực Mỹ", // hoặc "Mỹ" nếu bạn muốn ngắn gọn
     },
     {
-      "name": "Itaian",
-      "image": "assets/img/mi_y.png",
+      "name": "Mì Ý",
+      "image": "assets/img/foods/mi_y.png",
       "rate": "3.5",
       "rating": "200",
       "type": "Món chính",
-      "location": "Trần Hưng Đạo, Quận 5",
+      "food_type": "Ẩm thực Ý", // hoặc "Ý"
     },
     {
-      "name": "Hàn Quốc",
-      "image": "assets/img/com_tron_han_quoc.png",
+      "name": "Cơm trộn Hàn Quốc",
+      "image": "assets/img/foods/com_tron_han_quoc.png",
       "rate": "5.0",
       "rating": "620",
       "type": "Món chính",
-      "location": "Nguyễn Thái Bình, Quận 1",
+      "food_type": "Ẩm thực Hàn Quốc", // hoặc "Hàn Quốc"
     },
     {
-      "name": "Pháp",
-      "image": "assets/img/beef_steak.png",
+      "name": "Beef Steak",
+      "image": "assets/img/foods/beef_steak.png",
       "rate": "4.9",
       "rating": "490",
       "type": "Món chính",
-      "location": "Phạm Văn Hai, Quận Tân Bình",
+      "food_type": "Ẩm thực Pháp", // hoặc "Pháp"
     },
     {
-      "name": "Việt Nam",
-      "image": "assets/img/banh_mi.png",
+      "name": "Bánh mì",
+      "image": "assets/img/foods/banh_mi.png",
       "rate": "5.0",
       "rating": "725",
       "type": "Món chính",
-      "location": "Lưu Nhân Chú, Quận Tân Bình",
+      "food_type": "Ẩm thực Việt Nam", // hoặc "Việt Nam"
     },
   ];
 
   List mostpopList = [
     {
-      "name": "Hoa Kỳ",
-      "image": "assets/img/hamburger.png",
-      "rate": "4.9",
-      "rating": "124",
-      "type": "Thức ăn nhanh",
-      "location": "Phan Xích Long, Quận 11",
-    },
-    {
-      "name": "Itaian",
-      "image": "assets/img/mi_y.png",
-      "rate": "3.5",
-      "rating": "200",
-      "type": "Món chính",
-      "location": "Trần Hưng Đạo, Quận 5",
-    },
-    {
-      "name": "Hàn Quốc",
-      "image": "assets/img/com_tron_han_quoc.png",
+      "name": "Cơm trộn Hàn Quốc",
+      "image": "assets/img/foods/com_tron_han_quoc.png",
       "rate": "5.0",
       "rating": "620",
       "type": "Món chính",
-      "location": "Nguyễn Thái Bình, Quận 1",
+      "food_type": "Ẩm thực Hàn Quốc", // hoặc "Hàn Quốc"
     },
     {
-      "name": "Pháp",
-      "image": "assets/img/beef_steak.png",
+      "name": "Beef Steak",
+      "image": "assets/img/foods/beef_steak.png",
       "rate": "4.9",
       "rating": "490",
       "type": "Món chính",
-      "location": "Phạm Văn Hai, Quận Tân Bình",
-    },
-    {
-      "name": "Việt Nam",
-      "image": "assets/img/banh_mi.png",
-      "rate": "5.0",
-      "rating": "725",
-      "type": "Món chính",
-      "location": "Lưu Nhân Chú, Quận Tân Bình",
+      "food_type": "Ẩm thực Pháp", // hoặc "Pháp"
     },
   ];
 
   List recentList = [
     {
-      "name": "Hoa Kỳ",
-      "image": "assets/img/hamburger.png",
+      "name": "Hamburger",
+      "image": "assets/img/foods/hamburger.png",
       "rate": "4.9",
       "rating": "124",
       "type": "Thức ăn nhanh",
-      "location": "Phan Xích Long, Quận 11",
+      "food_type": "Ẩm thực Mỹ", // hoặc "Mỹ" nếu bạn muốn ngắn gọn
     },
     {
-      "name": "Itaian",
-      "image": "assets/img/mi_y.png",
+      "name": "Mì Ý",
+      "image": "assets/img/foods/mi_y.png",
       "rate": "3.5",
       "rating": "200",
       "type": "Món chính",
-      "location": "Trần Hưng Đạo, Quận 5",
+      "food_type": "Ẩm thực Ý", // hoặc "Ý"
     },
     {
-      "name": "Hàn Quốc",
-      "image": "assets/img/com_tron_han_quoc.png",
-      "rate": "5.0",
-      "rating": "620",
-      "type": "Món chính",
-      "location": "Nguyễn Thái Bình, Quận 1",
-    },
-    {
-      "name": "Pháp",
-      "image": "assets/img/beef_steak.png",
-      "rate": "4.9",
-      "rating": "490",
-      "type": "Món chính",
-      "location": "Phạm Văn Hai, Quận Tân Bình",
-    },
-    {
-      "name": "Việt Nam",
-      "image": "assets/img/banh_mi.png",
+      "name": "Bánh mì",
+      "image": "assets/img/foods/banh_mi.png",
       "rate": "5.0",
       "rating": "725",
       "type": "Món chính",
-      "location": "Lưu Nhân Chú, Quận Tân Bình",
+      "food_type": "Ẩm thực Việt Nam", // hoặc "Việt Nam"
     },
   ];
   @override
@@ -235,7 +198,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
 
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 20),
 
                   SizedBox(
                     height: 120,
@@ -258,11 +221,35 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
 
+                  ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    padding: EdgeInsets.zero,
+                    itemCount: popList.length,
+                    itemBuilder: ((context, index) {
+                      var pObj = popList[index] as Map? ?? {};
+                      return PopularRestaurantRow(rObj: pObj, onTap: () {});
+                    }),
+                  ),
+
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: ViewAllTitleRow(
                       title: "Các món ăn phổ biến",
                       onView: () {},
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 200,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      itemCount: mostpopList.length,
+                      itemBuilder: ((context, index) {
+                        var mObj = mostpopList[index] as Map? ?? {};
+                        return MostPopularCell(mObj: mObj, onTap: () {});
+                      }),
                     ),
                   ),
 
@@ -272,6 +259,17 @@ class _HomeViewState extends State<HomeView> {
                       title: "Các món ăn gần đây",
                       onView: () {},
                     ),
+                  ),
+
+                  ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    itemCount: recentList.length,
+                    itemBuilder: ((context, index) {
+                      var rObj = recentList[index] as Map? ?? {};
+                      return RecentListRow(rObj: rObj, onTap: () {});
+                    }),
                   ),
                 ],
               ),

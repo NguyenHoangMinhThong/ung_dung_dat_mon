@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ung_dung_dat_mon/common/color_app.dart';
 import 'package:ung_dung_dat_mon/common_widget/tab_button.dart';
 import 'package:ung_dung_dat_mon/view/home/home_view.dart';
+import 'package:ung_dung_dat_mon/view/menu/menu_view.dart';
 
 class MaintabView extends StatefulWidget {
   const MaintabView({super.key});
@@ -18,7 +19,7 @@ class _MaintabViewState extends State<MaintabView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 28, 28, 28),
+      backgroundColor: const Color.fromARGB(255, 39, 21, 76),
       body: PageStorage(bucket: bucket, child: selectPageView),
 
       floatingActionButtonLocation:
@@ -45,7 +46,7 @@ class _MaintabViewState extends State<MaintabView> {
       ),
 
       bottomNavigationBar: BottomAppBar(
-        color: Colors.grey,
+        color: const Color.fromARGB(255, 39, 21, 76),
         surfaceTintColor: ColorApp.white,
         shadowColor: Colors.black12,
         elevation: 1,
@@ -60,7 +61,7 @@ class _MaintabViewState extends State<MaintabView> {
               onTap: () {
                 if (selectab != 0) {
                   selectab = 0;
-                  selectPageView = Container();
+                  selectPageView = const MenuView();
                 }
                 if (mounted) {
                   setState(() {});

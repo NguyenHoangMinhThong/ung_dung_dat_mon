@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:ung_dung_dat_mon/common/color_app.dart';
 
 class MostPopularCell extends StatelessWidget {
-  final Map cObj;
+  final Map mObj;
   final VoidCallback onTap;
 
-  const MostPopularCell({super.key, required this.cObj, required this.onTap});
+  const MostPopularCell({super.key, required this.mObj, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +19,18 @@ class MostPopularCell extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
-                cObj["image"].toString(),
-                width: 90,
-                height: 90,
+                mObj["image"].toString(),
+                width: 220,
+                height: 110,
                 fit: BoxFit.cover,
               ),
             ),
             const SizedBox(height: 8),
             Text(
-              cObj["name"].toString(),
+              mObj["name"].toString(),
               style: TextStyle(
                 color: ColorApp.primaryText,
-                fontSize: 15,
+                fontSize: 18,
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -39,10 +39,48 @@ class MostPopularCell extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  cObj["name"].toString(),
+                  mObj["type"].toString(),
                   style: TextStyle(
                     color: ColorApp.primaryText,
-                    fontSize: 15,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+
+                Text(
+                  " . ",
+                  style: TextStyle(
+                    color: ColorApp.primary,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+
+                Text(
+                  mObj["food_type"].toString(),
+                  style: TextStyle(
+                    color: ColorApp.primaryText,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+
+                SizedBox(width: 6),
+
+                Image.asset(
+                  "assets/img/star_icon.png",
+                  width: 10,
+                  height: 10,
+                  fit: BoxFit.cover,
+                ),
+
+                SizedBox(width: 3),
+
+                Text(
+                  mObj["rate"].toString(),
+                  style: TextStyle(
+                    color: ColorApp.primary,
+                    fontSize: 12,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
