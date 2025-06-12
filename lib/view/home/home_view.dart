@@ -119,11 +119,9 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset(
-            "assets/img/bg.jpg",
-            width: media.width,
+          Container(
+            color: const Color.fromARGB(255, 39, 21, 76),
             height: media.height,
-            fit: BoxFit.cover,
           ),
           SingleChildScrollView(
             child: Padding(
@@ -141,7 +139,7 @@ class _HomeViewState extends State<HomeView> {
                           "Xin chào, Thông",
                           style: TextStyle(
                             color: ColorApp.primary,
-                            fontSize: 20,
+                            fontSize: 30,
                             fontWeight: FontWeight.w800,
                           ),
                         ),

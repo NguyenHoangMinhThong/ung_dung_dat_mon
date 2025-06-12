@@ -22,7 +22,7 @@ class TabButton extends StatelessWidget {
         children: [
           Image.asset(
             icon,
-            color: isSelected ? ColorApp.contenttextfield : ColorApp.primary,
+            color: isSelected ? Colors.white : ColorApp.primary,
             width: 40,
             height: 40,
           ),

@@ -3,6 +3,7 @@ import 'package:ung_dung_dat_mon/common/color_app.dart';
 import 'package:ung_dung_dat_mon/common_widget/menu_item_row.dart';
 import 'package:ung_dung_dat_mon/common_widget/popular_restaurant_row.dart';
 import 'package:ung_dung_dat_mon/common_widget/round_textfield.dart';
+import 'package:ung_dung_dat_mon/view/menu/item_detail_view.dart';
 
 class MenuItems extends StatefulWidget {
   final Map mObj;
@@ -124,7 +125,17 @@ class _MenuItemsState extends State<MenuItems> {
                     itemCount: popList.length,
                     itemBuilder: ((context, index) {
                       var mObj = popList[index] as Map? ?? {};
-                      return MenuItemRow(mObj: mObj, onTap: () {});
+                      return MenuItemRow(
+                        mObj: mObj,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ItemDetailView(),
+                            ),
+                          );
+                        },
+                      );
                     }),
                   ),
                 ],

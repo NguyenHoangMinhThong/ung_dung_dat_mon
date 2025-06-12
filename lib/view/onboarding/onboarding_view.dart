@@ -79,18 +79,18 @@ class _OnboardingViewState extends State<OnboardingView> {
                   Text(
                     pObj['title'].toString(),
                     style: TextStyle(
-                      color: ColorApp.primaryText,
+                      color: Colors.blue,
                       fontSize: 28,
                       fontWeight: FontWeight.w800,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: media.width * 0.07),
+                  SizedBox(height: 15),
 
                   Text(
                     pObj['subtitle'].toString(),
                     style: TextStyle(
-                      color: ColorApp.secondText,
+                      color: const Color.fromARGB(255, 217, 217, 217),
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                     ),

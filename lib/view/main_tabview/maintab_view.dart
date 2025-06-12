@@ -40,7 +40,7 @@ class _MaintabViewState extends State<MaintabView> {
           },
           shape: const CircleBorder(),
           backgroundColor:
-              selectab == 2 ? Colors.tealAccent : ColorApp.textfield,
+              selectab == 2 ? Colors.white : Color.fromARGB(255, 54, 33, 96),
           child: Image.asset('assets/img/home_logo.png', width: 30, height: 30),
         ),
       ),
@@ -86,7 +86,7 @@ class _MaintabViewState extends State<MaintabView> {
               icon: "assets/img/Gio_hang_logo.png",
             ),
 
-            SizedBox(width: 45, height: 40),
+            SizedBox(width: 40, height: 40),
 
             // Cá nhân
             TabButton(

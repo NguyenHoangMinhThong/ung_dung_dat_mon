@@ -15,66 +15,62 @@ class _WelcomeViewState extends State<WelcomeView> {
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
     return Scaffold(
-      body: Column(
+      body: Stack(
+        alignment: Alignment.center,
         children: [
-          Stack(
-            alignment: Alignment.center,
+          Image.asset(
+            'assets/img/bg.jpg',
+            width: media.width,
+            height: media.height,
+            fit: BoxFit.cover,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/img/bg.jpg',
-                width: media.width,
-                height: media.height,
-                fit: BoxFit.cover,
+              Image.asset('assets/img/logo.png', fit: BoxFit.contain),
+              Text(
+                'Bạn đã có tài khoản?',
+                style: TextStyle(
+                  color: ColorApp.white,
+                  fontSize: 25,
+                  fontWeight: FontWeight.w600,
+                ),
+                textAlign: TextAlign.center,
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Image.asset('assets/img/logo.png', fit: BoxFit.contain),
-                  Text(
-                    'Bạn đã có tài khoản?',
-                    style: TextStyle(
-                      color: ColorApp.white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: RoundButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LoginView(),
-                          ),
-                        );
-                      },
-                      title: 'Đăng nhập',
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    'Hoặc',
-                    style: TextStyle(
-                      color: ColorApp.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: RoundButton(
-                      onPressed: () {},
-                      title: 'Đăng ký',
-                      type: RoundButtonType.textPrimary,
-                    ),
-                  ),
-                ],
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: RoundButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginView(),
+                      ),
+                    );
+                  },
+                  title: 'Đăng nhập',
+                ),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                'Hoặc',
+                style: TextStyle(
+                  color: ColorApp.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: RoundButton(
+                  onPressed: () {},
+                  title: 'Đăng ký',
+                  type: RoundButtonType.textPrimary,
+                ),
               ),
             ],
           ),

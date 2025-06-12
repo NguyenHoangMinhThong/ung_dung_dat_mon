@@ -38,7 +38,7 @@ class PopularRestaurantRow extends StatelessWidget {
                     rObj["name"].toString(),
                     style: TextStyle(
                       color: ColorApp.primaryText,
-                      fontSize: 18,
+                      fontSize: 20,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -48,8 +48,8 @@ class PopularRestaurantRow extends StatelessWidget {
                     children: [
                       Image.asset(
                         "assets/img/star_icon.png",
-                        width: 10,
-                        height: 10,
+                        width: 13,
+                        height: 13,
                         fit: BoxFit.cover,
                       ),
 
@@ -59,7 +59,7 @@ class PopularRestaurantRow extends StatelessWidget {
                         rObj["rate"].toString(),
                         style: TextStyle(
                           color: ColorApp.primary,
-                          fontSize: 11,
+                          fontSize: 13,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -70,7 +70,7 @@ class PopularRestaurantRow extends StatelessWidget {
                         "(${rObj["rating"]} lượt đánh giá)",
                         style: TextStyle(
                           color: ColorApp.primaryText,
-                          fontSize: 11,
+                          fontSize: 13,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
